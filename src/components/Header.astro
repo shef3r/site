@@ -1,0 +1,26 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<header>
+		<img class="pfp" width="48" src="pfp.svg">
+	<nav>
+		<HeaderLink href="/">About Me</HeaderLink>
+		<HeaderLink href="/projects">Projects</HeaderLink>
+		<HeaderLink href="/contributed">Contributed</HeaderLink>
+		<HeaderLink href="/contact">Contact</HeaderLink>
+	</nav>
+</header>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Unbounded:wght@300&display=swap');
+	header {
+		display: flex;
+		text-transform: lowercase;
+		text-decoration: none !important;
+		justify-content: space-between;
+	}
+	h2 {
+		margin: 0.5em 0;
+	}
+</style>

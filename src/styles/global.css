@@ -1,0 +1,119 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+ @import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Unbounded:wght@300&display=swap');
+ @media (prefers-color-scheme: dark) {
+	html body {
+		background-color: black;
+		color:white;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	strong,
+	b, a {
+		color: rgb(224, 224, 224);
+	}
+	code {
+		background-color: #111111;
+	}
+	blockquote {
+		border: 1px solid rgb(46, 46, 46);
+		color: rgb(233, 233, 233);
+	}
+}
+@media (prefers-color-scheme: light) {
+	img.pfp.astro-3EF6KSR2 {
+		filter: invert(1);
+	}
+	body {
+		background-color: #fff;
+		color: #444;
+	}
+	blockquote {
+		border: 1px solid #999;
+		color: #222;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	strong,
+	b, a {
+		color: #222;
+	}
+	code {
+		background-color: #f2f2f2;
+	}
+}
+nav {
+	font-family: 'Unbounded', sans-serif !important;
+	text-decoration: none !important;
+	display: flex;
+    justify-content: space-around;
+    align-content: center;
+    height: 48px;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+a {
+	text-decoration: none !important;
+}
+body {
+	font-family: "PT Mono", sans-serif;
+}
+body {
+	margin: auto;
+	padding: 20px;
+	max-width: 100ch;
+	text-align: left;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	line-height: 1.5;
+}
+nav {
+	margin-right: 10px;
+}
+nav>*{
+	margin-left: clamp(2px, 5px, 8px);
+	margin-right: clamp(2px, 5px, 8px);
+}
+textarea {
+	width: 100%;
+	font-size: 16px;
+}
+input {
+	font-size: 16px;
+}
+content {
+	line-height: 1.6;
+}
+table {
+	width: 100%;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+code {
+	padding: 2px 5px;
+}
+pre {
+	padding: 1rem;
+}
+pre > code {
+	all: unset;
+}
+blockquote {
+	padding: 2px 0px 2px 20px;
+	margin: 0px;
+	font-style: italic;
+}
