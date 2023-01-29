@@ -5,12 +5,19 @@ import { SITE_TITLE } from '../consts';
 
 <header>
 		<img class="pfp" width="48" src="pfp.svg">
-	<nav>
+	<div style="display: flex;">
+	<nav class="bigmenu">
 		<HeaderLink href="/">About Me</HeaderLink>
 		<HeaderLink href="/projects">Projects</HeaderLink>
 		<HeaderLink href="/contributed">Contributed</HeaderLink>
 		<HeaderLink href="/contact">Contact</HeaderLink>
 	</nav>
+	<a style="height: 48px; width:48px;" class="menubutton" href="/MobileMenu">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.56 9.36 30 27.36" style="width:30px;">
+			<path class="menuicon" d="M 6.56 9.36 h 38 v 4.536 H 6.56 z M 6.56 20.736 h 38 v 4.608 H 6.56 z M 6.56 32.184 h 38 V 36.72 H 6.56 z"/>
+		  </svg>
+	</a>
+</div>
 </header>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Unbounded:wght@300&display=swap');
