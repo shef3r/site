@@ -46,10 +46,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-	table td, table th {
-		border: .2px solid black;
-	}
-	.tableframe {
+	table td, table th, .tableframe, .projectframe {
 		border: .2px solid black;
 	}
 	img.pfp.astro-3EF6KSR2 {
@@ -102,6 +99,38 @@ table td {
 	align-items: center;
 	gap:15px;
 }
+.projectgrid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.tags {
+	font-size: 12px;
+	display: flex;
+	margin-bottom: 6px;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+.tag {
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+    margin-top: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 1px 5px 1px 5px;
+    border: 1px solid;
+}
+.projectframe {
+	border-radius: 15px;
+	margin: 40px;
+	text-align: center;
+	width: 400px !important;
+	height:300px !important;
+	display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 20px !important;
+}
 .smallmenu {
 	font-family: 'Unbounded', sans-serif !important;
 	text-decoration: none !important;
@@ -140,7 +169,6 @@ table, .tableframe {
     justify-content: center;
     align-items: center;
 }
-footer {position: absolute;bottom: 0;}
 a {
 	text-decoration: none !important;
 }
