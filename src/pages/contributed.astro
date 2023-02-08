@@ -5,18 +5,35 @@ import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body style="height: calc(100% - 40px);">
+	<body style="height: calc(100% - 40px); display:flex; flex-direction:column;">
 		<Header title={SITE_TITLE} />
 		<main>
 			<h1>contributed</h1>
-			<p>
-				contributed elements
-			</p>
+			<div class="projectgrid">
+				<div class="projectframe">
+					<div><h2>Rise Media Player</h2>
+					<p>I added Polish there!</p></div>
+					<div class="tags">
+						<a class="tag gh" href="https://github.com/Rise-Software/Rise-Media-Player">GitHub</a>
+						<a class="tag" style="color:greenyellow; border-color: greenyellow;">Public</a>
+						<a class="tag" style="color:gray; border-color: gray;">UWP</a>
+					</div>
+				</div>
+				<div class="projectframe">
+					<div><h2>backlogs</h2>
+						<p>I'm working on a redesign!</p></div>
+						<div class="tags">
+							<a class="tag gh" href="https://github.com/surya-sk/backlogs">GitHub</a>
+							<a class="tag" style="color:greenyellow; border-color: greenyellow;">Public</a>
+							<a class="tag" style="color:gray; border-color: gray;">UWP</a>
+							<a class="tag" style="color:gray; border-color: gray;">In Progress</a>
+						</div>
+				</div>
+			</div>
 		</main>
 		<Footer />
 	</body>

@@ -116,7 +116,8 @@ table td {
 	margin-bottom: 6px;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content:center;
+	gap:8px;
 }
 .tag {
     margin-left: 2.5px;
