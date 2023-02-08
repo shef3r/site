@@ -5,7 +5,7 @@
  */
  @import url('https://fonts.googleapis.com/css2?family=PT+Mono&family=Unbounded:wght@300&display=swap');
  @media (prefers-color-scheme: dark) {
-	table td, table th {
+	table td, table th, .projectframe, .tableframe {
 		border: .2px solid white;
 	}
 	.tableframe {
@@ -34,6 +34,9 @@
 	}
 	.menuicon {
 		fill:white;
+	}
+	.gh {
+		color:white; border-color: white;
 	}
 }
 
@@ -73,6 +76,9 @@
 	b, a {
 		color: #222;
 	}
+	.gh {
+		color:black; border-color: black; background-color:rgba(0,0,0,.15)
+	}
 	code {
 		background-color: #f2f2f2;
 	}
@@ -101,13 +107,15 @@ table td {
 }
 .projectgrid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+	justify-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(400px, auto));
 }
 .tags {
 	font-size: 12px;
 	display: flex;
 	margin-bottom: 6px;
 	flex-direction: row;
+	flex-wrap: wrap;
 	justify-content: space-evenly;
 }
 .tag {
@@ -124,8 +132,9 @@ table td {
 	border-radius: 15px;
 	margin: 40px;
 	text-align: center;
-	width: 400px !important;
-	height:300px !important;
+	width: 300px !important;
+	padding: 30px;
+	height: 200px !important;
 	display: flex;
     flex-direction: column;
 	justify-content: space-between;
