@@ -32,12 +32,26 @@
 		border: 1px solid rgb(46, 46, 46);
 		color: rgb(233, 233, 233);
 	}
-	.menuicon {
+	path {
 		fill:white;
 	}
 	.gh {
 		color:white; border-color: white;
 	}
+}
+
+font {
+	white-space: nowrap;
+}
+
+a.social {
+	font-size: 22px;
+    padding: 30px;
+	align-items: center !important;
+	flex-direction: row !important;
+	justify-content: initial !important;
+	justify-content: center !important;
+    height: auto !important;
 }
 
 .menubutton {
