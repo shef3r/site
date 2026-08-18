@@ -84,12 +84,14 @@
 		display: flex;
 		flex-direction: column;
 		gap: 0.5rem;
+		min-width: 0;
 	}
 
 	h2 {
 		margin: 0;
-		font-size: 3.25rem;
+		font-size: clamp(1.2rem, 6cqi, 2.75rem);
 		font-weight: 700;
+		overflow-wrap: break-word;
 	}
 
 	.links {
