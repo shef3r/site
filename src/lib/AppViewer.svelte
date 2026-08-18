@@ -65,6 +65,9 @@
 
 	.app-icon {
 		height: 100px;
+		width: 100px;
+		min-width: 100px;
+		flex-shrink: 0;
 		border-radius: 16px;
 		display: flex;
 		align-items: center;
@@ -129,5 +132,11 @@
 		object-fit: cover;
 		opacity: 0.95;
 		display: block;
+	}
+
+	@container (max-width: 479px) {
+		.screenshot-container {
+			display: none;
+		}
 	}
 </style>

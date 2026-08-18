@@ -1,39 +1,90 @@
 <script lang="ts">
 	let {
 		children,
-		variant = 'primary',
 		onclick,
-		class: className = ''
+		class: className = '',
+		textColor = '#000000',
+		borderColor = '#89A0AB',
+		insetBorderColor = 'rgba(255, 255, 255, 0.7)',
+		bgGradient = 'linear-gradient(to bottom, #F5FBFD, #DBF0F9, #CEEAF7)',
+		blurRectColor = 'rgba(200, 189, 229, 0.3215)'
 	} = $props<{
 		children?: any;
-		variant?: 'primary' | 'secondary' | 'outline' | 'danger';
 		onclick?: (event: MouseEvent) => void;
 		class?: string;
+		textColor?: string;
+		borderColor?: string;
+		insetBorderColor?: string;
+		bgGradient?: string;
+		blurRectColor?: string;
 	}>();
 </script>
 
 <button
-	class="custom-button {variant} {className}"
+	class="custom-button {className}"
 	{onclick}
+	style="
+		--text-color: {textColor};
+		--border-color: {borderColor};
+		--inset-border-color: {insetBorderColor};
+		--bg-gradient: {bgGradient};
+		--blur-rect-color: {blurRectColor};
+	"
 >
-	{#if children}
-		{@render children()}
-	{/if}
+	<span class="content">
+		{#if children}
+			{@render children()}
+		{/if}
+	</span>
 </button>
 
 <style>
 	.custom-button {
 		position: relative;
-		overflow: hidden;
 		padding: 0.75rem 1.75rem;
-		border-radius: 9999px;
+		border-radius: 16px;
 		font-family: 'Michroma', sans-serif;
 		font-weight: 600;
 		font-size: 1rem;
 		cursor: pointer;
-		transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 		outline: none;
-		border: none;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--text-color);
+		
+		border: 2px solid var(--border-color);
+		
+		box-shadow: inset 0 0 0 2px var(--inset-border-color);
+		
+		background-image: var(--bg-gradient);
+		background-origin: padding-box, border-box;
+		background-clip: padding-box, border-box;
+		
+		background-size: 100% 150%, 100% 150%;
+		background-position: 0 0, 0 0;
+		
+		transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+	}
+
+	.custom-button::before {
+		content: '';
+		position: absolute;
+		/* Extend over the 2px border */
+		left: -2px;
+		right: -2px;
+		bottom: -2px;
+		height: 33.33%;
+		border-bottom-left-radius: 16px;
+		border-bottom-right-radius: 16px;
+		background-color: var(--blur-rect-color);
+		filter: blur(4px);
+		pointer-events: none;
+	}
+
+	.content {
+		position: relative;
+		z-index: 1;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -41,54 +92,10 @@
 	}
 
 	.custom-button:hover {
-		transform: translateY(-2px) scale(1.02);
+		background-position: 0 100%, 0 100%;
 	}
 
 	.custom-button:active {
-		transform: translateY(1px) scale(0.98);
-	}
-
-	.primary {
-		background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
-		color: white;
-	}
-
-	.primary::after {
-		content: '';
-		position: absolute;
-		top: 0; left: 0; right: 0; bottom: 0;
-		background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-		opacity: 0;
-		transition: opacity 0.3s ease;
-		border-radius: inherit;
-		z-index: -1;
-	}
-
-	.primary:hover::after {
-		opacity: 1;
-	}
-	
-	.primary { z-index: 1; }
-
-	.secondary {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(10px);
-		color: white;
-		border: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.secondary:hover {
-		background: rgba(255, 255, 255, 0.2);
-		border-color: rgba(255, 255, 255, 0.3);
-	}
-
-	.outline {
-		background: transparent;
-		color: #a855f7;
-		border: 2px solid #a855f7;
-	}
-
-	.outline:hover {
-		background: rgba(168, 85, 247, 0.1);
+		transform: scale(0.92);
 	}
 </style>

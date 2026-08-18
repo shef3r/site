@@ -48,8 +48,8 @@
 <style>
 	.folder-container {
 		display: flex;
-		width: 700px;
-		margin: 0 auto;
+		width: 100%;
+		container-type: inline-size;
 	}
 
 	.tabs-column {

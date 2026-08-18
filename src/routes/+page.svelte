@@ -1,8 +1,10 @@
 <script lang="ts">
 	import Folder from '$lib/Folder.svelte';
 	import Button from '$lib/Button.svelte';
+	import Link from '$lib/Link.svelte';
 	import AppViewer from '$lib/AppViewer.svelte';
 	import About from '$lib/About.svelte';
+	import Actions from '$lib/Actions.svelte';
 
 	import iconTaskie from '$lib/assets/AppIcons/Taskie.svg?raw';
 	import iconAnchor from '$lib/assets/AppIcons/Anchor.svg?raw';
@@ -96,107 +98,203 @@
 	];
 </script>
 
-<main class="showcase">
-	<header class="hero">
-		
-		<div class="actions">
-			<Button variant="primary">
-				button style
-			</Button>ř
+<main class="page-container">
+	<!-- Section 1 -->
+	<section class="section-1 showcase">
+		<div class="s1-left">
+			<div class="s1-content">
+				<h2>Hi there!</h2>
+				<p>You just found my website! I'm Bruno (or shefer) and I do web design and .NET development (so far).</p>	
+				<p>I currently have 4 public apps, which you can check out using the folder, and even more repos on the GitHub page below.</p>
+				<p>Scroll down to see more and find quick links.</p>
+			</div>
+			<div class="s1-centered-text">
+				<p>designed and built by shefer · last updated on august 18th, 2026</p>
+			</div>
 		</div>
-	</header>
+		<div class="s1-right">
+			<Folder tabs={folderTabs} />
+		</div>
+	</section>
 
-	<section class="component-section">
-		
-		<Folder tabs={folderTabs} />
+	<!-- Section 2 -->
+	<section class="section-2">
+		<div class="s2-content">
+			<div class="s2-left">
+				<p>I'm always looking for new app testers! Sign up to share feedback.</p>
+			</div>
+			<div class="s2-right">
+				<Link link="https://share.formgrid.com/A0avJP0iQQAgr5fK" text="sign-up form" showArrow={false}/>
+			</div>
+		</div>
+	</section>
+
+	<!-- Section 3 -->
+	<section class="section-3 showcase">
+		<Actions />
 	</section>
 </main>
 
 <style>
+	:global(body) {
+		margin: 0;
+		padding: 0;
+	}
+
+	.page-container {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+
 	.showcase {
-		max-width: 1200px;
+		max-width: 1500px;
+		width: 100%;
 		margin: 0 auto;
-		padding: 4rem 2rem;
+		padding: 0 2rem;
+		box-sizing: border-box;
+	}
+
+	.section-1 {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+		align-items: stretch;
+		animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	.s1-left {
+		flex: 1.5;
 		display: flex;
 		flex-direction: column;
-		gap: 6rem;
+		justify-content: space-between;
 	}
 
-	.hero {
-		text-align: center;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-		animation: slide-down 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-		opacity: 0;
-		transform: translateY(-20px);
+	.s1-content h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 1.5rem;
 	}
 
-	@keyframes slide-down {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	h1 {
-		font-size: 4rem;
-		font-weight: 800;
-		margin: 0;
-		line-height: 1.1;
-		letter-spacing: -0.03em;
-	}
-
-	h1 span {
-		background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-	}
-
-	.hero p {
-		font-size: 1.25rem;
-		color: var(--text-secondary);
-		max-width: 600px;
-		margin: 0;
+	.s1-content p {
+		font-size: 1.35rem;
+		color: var(--text-secondary, #4b5563);
 		line-height: 1.6;
+		margin-bottom: 1.25rem;
 	}
 
-	.actions {
-		display: flex;
-		gap: 1rem;
-		margin-top: 1rem;
+	.s1-centered-text {
+		margin-top: 2rem;
+		text-align: center;
+		font-weight: 400;
+		font-size: 1rem;
+		color: var(--text-primary, #111827);
+		opacity: 0.7;
 	}
 
-	.component-section {
+	.s1-right {
+		flex: 1;
 		display: flex;
-		flex-direction: column;
-		gap: 2.5rem;
-		animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
-		opacity: 0;
-		transform: translateY(30px);
+		justify-content: stretch;
+		align-items: flex-start;
+	}
+
+	.section-2 {
+		width: 100%;
+		background: linear-gradient(135deg, white 0%, #CEEAF7 150%);
+		padding: 1.5rem 0;
+		border-radius: 0;
+	}
+
+	.s2-content {
+		max-width: 1500px;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0 2rem;
+		box-sizing: border-box;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.s2-left {
+		flex: 1;
+		text-align: left;
+	}
+
+	.s2-left p {
+		font-size: 1.1rem;
+		margin: 0;
+		font-weight: 400;
+	}
+
+	.s2-right {
+		flex-shrink: 0;
+	}
+
+	.section-3 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 2rem;
 	}
 
 	@keyframes fade-in-up {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
 		to {
 			opacity: 1;
 			transform: translateY(0);
 		}
 	}
 
-	.section-header {
-		text-align: center;
+	@media (min-width: 921px) and (max-width: 1600px) {
+		.s1-left {
+			flex: 1;
+		}
+
+		.s1-right {
+			margin-right: 3rem;
+		}
+
+		.s1-content h2 {
+			font-size: 2rem;
+		}
+
+		.s1-content p {
+			font-size: 1.15rem;
+		}
 	}
 
-	.section-header h2 {
-		font-size: 2.5rem;
-		font-weight: 700;
-		margin: 0 0 0.5rem 0;
-	}
+	@media (max-width: 920px) {
+		.section-1 {
+			flex-direction: column;
+		}
 
-	.section-header p {
-		color: var(--text-secondary);
-		font-size: 1.1rem;
-		margin: 0;
+		.s1-left {
+			margin-right: 3rem;
+		}
+
+		.s1-right {
+			width: 100%;
+			justify-content: center;
+			margin-top: 2rem;
+		}
+
+		.s2-content {
+			flex-direction: column;
+			gap: 1rem;
+			text-align: center;
+		}
+		
+		.s2-left {
+			text-align: center;
+		}
 	}
 </style>

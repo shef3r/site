@@ -1,23 +1,53 @@
 <script lang="ts">
-	// This component stays at the top right of the viewport
+	import TextLogo from '$lib/assets/Icons/TextLogo.svg?raw';
+	import Logo from '$lib/assets/Icons/Logo.svg?raw';
 </script>
 
 <div class="fixed-top-right">
-	<span>Always Here</span>
+	<div class="logo-container">
+		{@html Logo}
+	</div>
+	<div class="text-logo-container">
+		{@html TextLogo}
+	</div>
 </div>
 
 <style>
 	.fixed-top-right {
 		position: absolute;
-		top: 0;
-		right: 0;
+		top: 0rem;
+		right: 0rem;
 		margin: 0 !important;
-		padding: 1rem 1.5rem;
-		background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-		color: white;
-		font-weight: 700;
 		z-index: 9999;
-		border-bottom-left-radius: 12px;
-		backdrop-filter: blur(8px);
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		gap: 1.5rem;
+	}
+
+	.logo-container :global(svg) {
+		width: 50px;
+		height: auto;
+		transform: scaleY(-1);
+		filter: brightness(0);
+		flex-shrink: 0;
+	}
+
+	.text-logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50px;
+		height: 196px;
+	}
+
+	.text-logo-container :global(svg) {
+		width: 196px;
+		height: 50px;
+		min-width: 196px;
+		min-height: 50px;
+		flex-shrink: 0;
+		filter: brightness(0);
+		transform: rotate(-90deg);
 	}
 </style>
