@@ -2,5 +2,5 @@ import { redirect } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = () => {
-	redirect(308, 'https://files.catbox.moe/s6rinc.apk');
+	redirect(308, 'https://files.catbox.moe/wvld0d.apk');
 };
